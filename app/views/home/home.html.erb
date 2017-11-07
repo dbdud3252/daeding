@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+<a class="navbar-brand" href="#">대딩</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Disabled</a>
+    </li>
+  </ul>
+  <form class="form-inline my-2 my-lg-0">
+    <a href="#" class="btn btn-outline-success my-2 my-sm-0 mr-3" role="button" aria-pressed="true">Login</a>
+    <a href="#" class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">Sign up</a>
+  </form>
+</div>
+</nav>
+
+
+<div class="card text-center">
+<div class="card-body">
+  <h4 class="card-title">대학생들을 위한 아웃소싱 플랫폼</h4>
+  <p class="card-text">디자인/영상/개발 등의 프로젝트를 대학생들과 함께하세요.</p>
+  <a href="#" class="btn btn-primary">프로젝트 등록</a>
+</div>
+</div>
+
+<% @project = ["동아리 포스터 부탁드립니다.","홍보 영상 촬영 외주","스타트업 웹사이트 제작"] %>
+
+<div class="container mt-3">
+
+        <p class="text-center">새로운 프로젝트</p>
+    
+    <div class="row">
+    <% @project.each do |name| %>
+        <div class="col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title"><%=name%></h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card content.</p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+
