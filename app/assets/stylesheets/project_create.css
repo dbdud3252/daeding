@@ -1,0 +1,17 @@
+.title{
+    font-size: 2em;
+}
+
+.check
+{
+    opacity:0.5;
+    color:#996;
+}
+
+.hidden {
+    display: none;
+}
+
+.icon{
+    size: 50%;
+}
