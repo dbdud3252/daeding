@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row justify-content-md-center mt-3">
+        <div class="col-6">
+            <p class="title">프로젝트 등록</p>
+            <%= stylesheet_link_tag "project_create" %>
+            <%= form_tag '/project/create_1' do %>
+
+            <div class="row ml-3 mt-2">
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="1">
+                    디자인
+                    </label>
+                </div>  
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="2">
+                    개발
+                    </label>
+                </div> 
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="3">
+                    영상
+                    </label>
+                </div>  
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="4">
+                    번역
+                    </label>
+                </div> 
+
+                <button type="submit">다음 단계</button>
+            <% end %>
+            </div>  
+        </div>
+    </div>
+</div>

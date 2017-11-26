@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-md-center mt-3">
+        <div class="col-6">
+            <p class="title">프로젝트 등록</p>
+            <%= stylesheet_link_tag "project_create" %>
+            <%= form_tag '/project/create_2' do %>
+
+                <div class="row ml-3 mt-2">
+                    <% @small_category=["웹","모바일웹","애플리케이션","쇼핑몰","일러스트","그래픽","3D","로고","제품 패키지","포스터","PPT 템플릿","인쇄물","게임","광고,배너","기타"]%>
+                    <% @a=0 %>
+                    
+                    <% @small_category.each do |category| %>
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="small_category" value=<%=@a%> > 
+                            <%=category%> 
+                            </label>
+                            <% @a=@a+1 %>
+                        </div>
+                        
+                    <%end%>
+                    <div>
+                    <p>예상 시간</p>
+                    <input type="text" name="time" >
+                    </br>
+                    </div>
+                    <div>
+                    <p>작업 분량</p>
+                    <input type="text" name="amount_id" >
+                    </div>
+                    <div class="form-group">
+                    <label for="exampleFormControlSelect1">작업유형</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="project_type_id">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                </div>     
+             
+
+            <button type="submit">다음 단계</button>
+            <% end %> 
+        </div>
+    </div>
+</div>

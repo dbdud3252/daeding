@@ -5,65 +5,83 @@
     <%= stylesheet_link_tag "project_create" %>
     <%= javascript_tag "project_create" %>
 
+    <form action='/project/create' method="GET">
+
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" id="pills-categroy-tab" data-toggle="pill" href="#pills-category" role="tab" aria-controls="pills-category" aria-selected="true">분야선택</a>
+        <a class="nav-link <%= 'active' if !params[:category_option]&!params[:small_category] %>" id="pills-categroy-tab" data-toggle="pill" href="#pills-category" role="tab" aria-controls="pills-category" aria-selected="true">분야선택</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+        <a class="nav-link <%= 'active' if params[:category_option] %>" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">세부정보</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+        <a class="nav-link <%= 'active' if !params[:category_option]&params[:small_category]%>" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
     </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
-                <div class="row ml-4">
-                        <div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-                        </div>
-                        <div class="tab-content ml-4" id="v-pills-tabContent">
-                            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                                             <% @small_category = ["웹","모바일웹","어플리케이션"] %>
-                            
-                            
-                                                <div class="row ml-3 mt-2">
-                                                    <% @small_category.each do |category| %>
-                                                    <div class="form-check mr-3 ml-3">
-                                                        <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <%=category%>                   
-                                                        </label>
-                                                    </div>  
-                                                    <% end %> 
-                                                </div>    
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-                                            <% @small_category = ["1","2","3"] %>
-                            
-                            
-                                                <div class="row ml-3 mt-2">
-                                                    <% @small_category.each do |category| %>
-                                                    <div class="form-check mr-3 ml-3">
-                                                        <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        <%=category%>                   
-                                                        </label>
-                                                    </div>  
-                                                    <% end %> 
-                                                </div>    
-                            </div>
-                            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-                        </div>
-                </div>
+        <div class="tab-pane fade <%= 'show active' if !params[:category_option]&!params[:small_category] %>" id="pills-category" role="tabpanel" aria-labelledby="pills-category-tab">
+                
+                          
+            <div class="row ml-3 mt-2">
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="1">
+                    디자인
+                    </label>
+                </div>  
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="2">
+                    개발
+                    </label>
+                </div> 
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="3">
+                    영상
+                    </label>
+                </div>  
+                <div class="form-check mr-3 ml-3">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="category_option" value="4">
+                    번역
+                    </label>
+                </div> 
+
+                <button type="submit">다음 단계</button>
+                </form>
+            </div>    
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        <div class="tab-pane fade <%= 'show active' if params[:category_option] %>" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            
+            <% @small_category=["웹","모바일웹","애플리케이션","쇼핑몰","일러스트","그래픽","3D","로고","제품 패키지","포스터","PPT 템플릿","인쇄물","게임","광고,배너","기타"] if params[:category_option]=="1"%>
+            <% @small_category=["웹","모바일웹","어플리케이션","프로그램","플랫폼 서비스","쇼핑몰","게임","임베디드","기타"] if params[:category_option]=="2"%>
+            <% @small_category=["간단편집","촬영","모션그래픽","특수효과","3D 애니메이션","2D 애니메이션","기타"] if params[:category_option]=="3"%>
+            <% @small_category=["영어","중국어","일어","베트남어","독일어","스페인어","불어","아랍어","기타"] if params[:category_option]=="4"%>
+            <% @small_category=[] if !params[:category_option]%>
+
+            <% @category_option=1 if !params[:category_option]==1%>
+
+            <% @small_category.each do |category| %>
+            <div class="form-check form-check-inline">
+                <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" name="small_category" value=<%=category%> > 
+                <%=category%> 
+                </label>
+                
+             </div>
+             
+             <%end%>
+             <% @type_var = params[:category_option] %>
+             <button type="submit">다음 단계</button>
+        </div>
+        <div class="tab-pane fade <%= 'show active' if !params[:category_option]&params[:small_category] %>" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <%=@type_var%>
+            <%=@small_type%>
+        </div>
     </div>
+
+    
 
 </div>
 </div>

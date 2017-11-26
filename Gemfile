@@ -8,6 +8,7 @@ end
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'
 gem 'sprockets-rails'
+gem 'bootstrap-datepicker-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
